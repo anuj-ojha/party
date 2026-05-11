@@ -3,7 +3,8 @@
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
         require-authentication="anonymous-all">
 
-    <transition name="getPartyList">
+    <transition name="createParty">
+        <service-call name="create#tutorial.party.Party"/>
         <default-response url="."/>
     </transition>
 
@@ -12,9 +13,18 @@
     </actions>
 
     <widgets>
-        <label text="Party List" type="h2"/>
-        
-        <form-list name="PartyListForm" list="partyList">
+        <label text="Party Management" type="h2"/>
+
+        <container-dialog id="CreatePartyDialog" button-text="Create New Party">
+            <form-single name="CreatePartyForm" transition="createParty">
+                <auto-fields-entity entity-name="tutorial.party.Party" field-type="edit"/>
+                <field name="submitButton">
+                    <default-field title="Create"><submit/></default-field>
+                </field>
+            </form-single>
+        </container-dialog>
+
+        <form-list name="PartyListForm" list="partyList" skip-form="true">
             <field name="partyId">
                 <header-field show-order-by="true" title="ID"/>
                 <default-field><display/></default-field>
