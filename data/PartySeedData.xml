@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <moqui.basic.EnumerationType description="Party Type" enumTypeId="PartyType"/>
+    <moqui.basic.Enumeration enumId="PERSON" enumTypeId="PartyType" description="Person"/>
+    <moqui.basic.Enumeration enumId="PARTY_GROUP" enumTypeId="PartyType" description="Party Group"/>
+
+    <moqui.basic.EnumerationType description="Contact Mech Type" enumTypeId="ContactMechType"/>
+    <moqui.basic.Enumeration enumId="EMAIL" enumTypeId="ContactMechType" description="Email"/>
+    <moqui.basic.Enumeration enumId="TELECOM_NUMBER" enumTypeId="ContactMechType" description="Phone"/>
+
+    <tutorial.party.Party partyId="100" partyTypeEnumId="PERSON"/>
+    <tutorial.party.Person partyId="100" firstName="Anuj" lastName="Ojha"/>
+
+    <tutorial.party.Party partyId="200" partyTypeEnumId="PARTY_GROUP"/>
+    <tutorial.party.PartyGroup partyId="200" groupName="Moqui Devs" description="A software group"/>
+
+    <tutorial.party.ContactMech contactMechId="CM01" contactMechTypeId="EMAIL" infoString="anuj@example.com"/>
+    <tutorial.party.PartyContactMech partyId="100" contactMechId="CM01" fromDate="2026-01-01 00:00:00.000"/>
+</entity-facade-xml>
